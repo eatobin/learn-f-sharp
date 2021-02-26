@@ -6,6 +6,8 @@
 // Define a function to construct a message to print
 let from whom = sprintf "from %s" whom
 
+let myAdd2 i = i + 2
+
 [<EntryPoint>]
 let main _ =
     let message =
@@ -54,5 +56,7 @@ let main _ =
     printfn "length l10: %i" res20
     printfn "length l20: %i" res30
     printfn "length l30: %i" res40
+
+    printfn "myAdd2 is: %i" (myAdd2 64)
 
     0 // return an integer exit code
