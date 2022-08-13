@@ -4,7 +4,7 @@
 // Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
 
 // Define a function to construct a message to print
-let from whom = sprintf "from %s" whom
+let from whom = $"from %s{whom}"
 
 let myAdd2 i = i + 2
 
@@ -13,7 +13,7 @@ let main _ =
     let message =
         from "F#!!!!!? Ericky to Karen!! Bye! New house!!" // Call the function
 
-    printfn "Hello world %s" message
+    printfn $"Hello world %s{message}"
 
     let numbers = [ 0 .. 100 ]
 
@@ -25,7 +25,7 @@ let main _ =
 
     let res = myFun numbers
 
-    printfn "answer: %i" res
+    printfn $"answer: %i{res}"
 
     let rec len l =
         match l with
@@ -36,14 +36,14 @@ let main _ =
     let res2 = len list1
     let list2 = [ 1 .. 10 ]
     let res3 = len list2
-    printfn "length l1: %i" res2
-    printfn "length l2: %i" res3
+    printfn $"length l1: %i{res2}"
+    printfn $"length l2: %i{res3}"
 
     let lenR l =
         let rec loop cur cnt =
             match cur with
             | [] -> cnt
-            | (_ :: tail) -> loop tail (cnt + 1)
+            | _ :: tail -> loop tail (cnt + 1)
 
         loop l 0
 
@@ -53,10 +53,10 @@ let main _ =
     let res30 = lenR list20
     let list30 = [ 1 .. 100001 ]
     let res40 = lenR list30
-    printfn "length l10: %i" res20
-    printfn "length l20: %i" res30
-    printfn "length l30: %i" res40
+    printfn $"length l10: %i{res20}"
+    printfn $"length l20: %i{res30}"
+    printfn $"length l30: %i{res40}"
 
-    printfn "myAdd2 is: %i" (myAdd2 64)
+    printfn $"myAdd2 is: %i{myAdd2 64}"
 
     0 // return an integer exit code
